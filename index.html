@@ -6,47 +6,46 @@
 
 
 <h1>Krepta's Gacha Commission Spins!</h1>
-<p>These are take-what-you-get artistic freedom style commissions.
-    I will not provide WIPS.
-    Once the commission is finished, I will offer to fix any mistakes I have made that are clearly visible in your ref sheet.
+<p>These are take-what-you-get artistic freedom style commissions.<br>
+    I will not provide WIPS.<br>
+    Once the commission is finished, I will offer to fix any mistakes I have made that are clearly visible in your ref sheet.<br>
+    <br>
+    If you roll twice without buying a second commission, I will be able to see what your first roll was!<br>
+    <br>
+    Base Chances:<br>
+    <br>
+        Scale:<br>
+        40% headshot<br>
+        30% halfbody<br>
+        30% fullbody<br>
+        <br>
+        Coloring:<br>
+        20% flat colored<br>
+        50% lightly shaded<br>
+        30% heavily shaded<br>
+        <br>
+        Style:<br>
+        40% chibi<br>
+        30% cartoon<br>
+        30% anatomical<br>
+        <br>
+    Boost Chances:<br>
+        A boost is $5. You can only roll one boost per commission.<br>
+        If you'd like a boost, buy it when you purchase your commission! It is available as an add-on on the Etsy page.<br>
+        <br>
+        30% experimental<br>
+        30% minor animation<br>
+        20% simple background<br>
+        10% full scale background<br>
+        10% full animation<br>
 
-    If you roll twice without buying a second commission, I will be able to see what your first roll was!
+    Extra polish:<br>
+        Available for an additional $5! I'll take extra time on this piece.<br>
+        <br>
 
-    Base Chances:
-
-        Scale:
-        40% headshot
-        30% halfbody
-        30% fullbody
-
-        Coloring:
-        20% flat colored
-        50% lightly shaded
-        30% heavily shaded
-
-        Style: 
-        40% chibi
-        30% cartoon
-        30% anatomical
-
-    Boost Chances:
-        A boost is $5. You can only roll one boost per commission.
-        If you'd like a boost, buy it when you purchase your commission! It is available as an add-on on the Etsy page.
-        
-        30% experimental
-        30% minor animation
-        20% simple background
-        10% full scale background
-        10% full animation
-
-    Extra polish:
-        Available for an additional $5! I'll take extra time on this piece.
+        <button onclick="StartRandomizer()">Start Randomizer</button><br>
 
         <p id="showResults"></p>
-
-
-        <button onclick="StartRandomizer()">Start Randomizer</button>
-
 
         <script>
         function StartRandomizer() {
@@ -128,7 +127,12 @@
             boost: boost
             };
 
-            document.getElementById("showResults").innerHTML = newRoll;
+            document.getElementById("showResults").innerHTML = 
+                "username: " + newRoll.userName + "\n" +
+                "scale: " + newRoll.scale + "\n" +
+                "coloring: " + newRoll.coloring + "\n" +
+                "style: " + newRoll.style + "\n" +
+                "boost: " + newRoll.boost;
         }
         
 
