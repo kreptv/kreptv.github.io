@@ -2,6 +2,13 @@
 <html>
 <body>
 
+    <style>
+        h1 {text-align: center;}
+        p {text-align: center;}
+        p2 {text-align: center; font-size: 24px}
+        div {text-align: center;}
+        </style>
+
 <script src="connect.js"></script>
 
 
@@ -10,26 +17,24 @@
     I will not provide WIPS.<br>
     Once the commission is finished, I will offer to fix any mistakes I have made that are clearly visible in your ref sheet.<br>
     <br>
-    If you roll twice without buying a second commission, I will be able to see what your first roll was!<br>
+    <b>Base Chances:</b><br>
     <br>
-    Base Chances:<br>
-    <br>
-        Scale:<br>
+        <b>Scale:</b><br>
         40% headshot<br>
         30% halfbody<br>
         30% fullbody<br>
         <br>
-        Coloring:<br>
+        <b>Coloring:</b><br>
         20% flat colored<br>
         50% lightly shaded<br>
         30% heavily shaded<br>
         <br>
-        Style:<br>
+        <b>Style:</b><br>
         40% chibi<br>
         30% cartoon<br>
         30% anatomical<br>
         <br>
-    Boost Chances:<br>
+    <b>Boost Chances:</b><br>
         A boost is $5. You can only roll one boost per commission.<br>
         If you'd like a boost, buy it when you purchase your commission! It is available as an add-on on the Etsy page.<br>
         <br>
@@ -38,21 +43,31 @@
         20% simple background<br>
         10% full scale background<br>
         10% full animation<br>
-
-    Extra polish:<br>
+        <br>
+    <b>Extra polish:</b><br>
         Available for an additional $5! I'll take extra time on this piece.<br>
         <br>
+        <br>
+        You are more than welcome to test the odds before rolling! Just leave the username as "test".<br>
+        Once you roll under a username, you will not be able to roll under the same username again. If you've bought multiple orders, please add a number after your username to symbolize your second commission!<br>
+        <br>
 
+        Username: <input type="text" id="username" value="test"> <br>
+
+        <input type="checkbox" id="boost" name="boost" value="true">
+        <label for="boost"> I have a boost</label><br>
+        <br>
         <button onclick="StartRandomizer()">Start Randomizer</button><br>
+        <br>
 
-        <p id="showResults"></p>
+        <p2 id="showResults"></p2>
 
         <script>
         function StartRandomizer() {
-            var boostActive;
+            var boostActive = document.getElementById("boost").checked;
             var randomizer;
 
-            var userName;
+            var userName = document.getElementById("username").value;
             var scale;
             var coloring;
             var style;
@@ -61,37 +76,37 @@
             // scale
             randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
             if (randomizer >= 1 && randomizer <= 40){
-                boost = "headshot"
+                scale = "headshot"
             }
             else if (randomizer >= 41 && randomizer <= 70){
-                boost = "halfbody"
+                scale = "halfbody"
             }
             else {
-                boost = "fullbody"
+                scale = "fullbody"
             }
 
             // coloring
             randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
             if (randomizer >= 1 && randomizer <= 20){
-                boost = "flat colored"
+                coloring = "flat colored"
             }
             else if (randomizer >= 21 && randomizer <= 70){
-                boost = "lightly shaded"
+                coloring = "lightly shaded"
             }
             else {
-                boost = "heavily shaded"
+                coloring = "heavily shaded"
             }
 
             // style
             randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
             if (randomizer >= 1 && randomizer <= 40){
-                boost = "chibi"
+                style = "chibi"
             }
             else if (randomizer >= 41 && randomizer <= 70){
-                boost = "cartoon"
+                style = "cartoon"
             }
             else {
-                boost = "anatomical"
+                style = "anatomical"
             }
 
             // boost
@@ -128,13 +143,12 @@
             };
 
             document.getElementById("showResults").innerHTML = 
-                "username: " + newRoll.userName + "\n" +
-                "scale: " + newRoll.scale + "\n" +
-                "coloring: " + newRoll.coloring + "\n" +
-                "style: " + newRoll.style + "\n" +
-                "boost: " + newRoll.boost;
+                "<b>username: </b>" + newRoll.userName + "<br>" +
+                "<b>scale: </b>" + newRoll.scale + "<br>" +
+                "<b>coloring: </b>" + newRoll.coloring + "<br>" +
+                "<b>style: </b>" + newRoll.style + "<br>" +
+                "<b>boost: </b>" + newRoll.boost;
         }
-        
 
         </script>
 
