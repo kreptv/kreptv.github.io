@@ -1,7 +1,141 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<script src="connect.js"></script>
+
+
+<h1>Krepta's Gacha Commission Spins!</h1>
+<p>These are take-what-you-get artistic freedom style commissions.
+    I will not provide WIPS.
+    Once the commission is finished, I will offer to fix any mistakes I have made that are clearly visible in your ref sheet.
+
+    If you roll twice without buying a second commission, I will be able to see what your first roll was!
+
+    Base Chances:
+
+        Scale:
+        40% headshot
+        30% halfbody
+        30% fullbody
+
+        Coloring:
+        20% flat colored
+        50% lightly shaded
+        30% heavily shaded
+
+        Style: 
+        40% chibi
+        30% cartoon
+        30% anatomical
+
+    Boost Chances:
+        A boost is $5. You can only roll one boost per commission.
+        If you'd like a boost, buy it when you purchase your commission! It is available as an add-on on the Etsy page.
+        
+        30% experimental
+        30% minor animation
+        20% simple background
+        10% full scale background
+        10% full animation
+
+    Extra polish:
+        Available for an additional $5! I'll take extra time on this piece.
+
+        <p id="showResults"></p>
+
+
+        <button onclick="StartRandomizer()">Start Randomizer</button>
+
+
+        <script>
+        function StartRandomizer() {
+            var boostActive;
+            var randomizer;
+
+            var userName;
+            var scale;
+            var coloring;
+            var style;
+            var boost;
+
+            // scale
+            randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
+            if (randomizer >= 1 && randomizer <= 40){
+                boost = "headshot"
+            }
+            else if (randomizer >= 41 && randomizer <= 70){
+                boost = "halfbody"
+            }
+            else {
+                boost = "fullbody"
+            }
+
+            // coloring
+            randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
+            if (randomizer >= 1 && randomizer <= 20){
+                boost = "flat colored"
+            }
+            else if (randomizer >= 21 && randomizer <= 70){
+                boost = "lightly shaded"
+            }
+            else {
+                boost = "heavily shaded"
+            }
+
+            // style
+            randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
+            if (randomizer >= 1 && randomizer <= 40){
+                boost = "chibi"
+            }
+            else if (randomizer >= 41 && randomizer <= 70){
+                boost = "cartoon"
+            }
+            else {
+                boost = "anatomical"
+            }
+
+            // boost
+            if (boostActive == true){
+                randomizer = Math.floor(Math.random() * 100) + 1; // 1 to 100
+                if (randomizer >= 1 && randomizer <= 30){
+                    boost = "experimental"
+                }
+                else if (randomizer >= 31 && randomizer <= 60){
+                    boost = "minor animation"
+                }
+                else if (randomizer >= 61 && randomizer <= 80){
+                    boost = "simple background"
+                }
+                else if (randomizer >= 81 && randomizer <= 90){
+                    boost = "full scale background"
+                }
+                else {
+                    boost = "full animation"
+                }
+            }
+            else {
+                boost = "none";
+            }
+
+
+
+            const newRoll = {
+            userName: userName,
+            scale: scale,
+            coloring: coloring,
+            style: style,
+            boost: boost
+            };
+
+            document.getElementById("showResults").innerHTML = newRoll;
+        }
+        
+
+        </script>
+
+        
+    
+</p>
 </body>
 </html>
